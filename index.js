@@ -12,7 +12,7 @@ const app = express();
 //res is an object and refers to the outgoing response
 //res.send returns an JS object
 app.get("/", (req, res) => {
-  res.send({ hi: "there" });
+  res.send({ bye: "there" });
 });
 
 //heroku can dynamically inject environment variables including port number when run.  Environment variables are heroku's opportunity to pass config info.  || (or) port 5000 if still in development as herouku has not passed the port number yet.
