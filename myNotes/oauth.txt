@@ -1,0 +1,18 @@
+Google OAuth
+
+OAuth standard, can be google, twitter, facebook, github, etc.
+
+Passport.js provides helpers for handling auth in Express apps.
+We must also install a passport strategy, eg google, facebook.
+
+npm i --save passport passport-google-oauth2  (installing passport and the google stategy)
+
+Goto console.developers.google.com.au to register/create the project which will be asking google to authenticate the user.
+Search Google+ API which contains google oauth, and enable.
+Click credentials on LHS pane, select OAuth client ID, click on configure consent screen.  Type in name of app into product field, then save.  Select Web application,  addresses (for now) auth JS origins http://localhost:5000, auth redirect URIs http://localhost:5000/auth/google/callback (this auth redirect must match exactly to the callbackURL in GoogleStrategy).  Create.  Client ID and Secret available now to tell google when asking to verify user.
+
+When hit we hit http://localhost:5000/auth/google route for user authentication, the route handler in index.js is directed to google and we see the google login page.  If we click on a profile with the correct credentials, we get redirected to http://localhost:5000/auth/google/callback as specified in the GoogleStrategy, but with a code at the end of the URL.  This code is like a session token which google will use.  This returns an access token to the second argument (callback) of our new GoogleStrategy to run.
+
+Cookie saved in header of response from successful login from the server.  This is stripped off the response by the browser and automatically appended to subsequent request to the server to verify user.
+
+Google OAuth uses the google ID which is in the profile as the unique identifier to determine if the user is the same as before (like how email/password logins compare signup email/passwords to login email/password).  So when a user signs up to our application, it is the google ID which is saved for comparison in subsequent logins to retrieve data stored on our app.  This will be saved in our mongodb.

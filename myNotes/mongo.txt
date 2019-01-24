@@ -1,0 +1,25 @@
+Mongoose.js library used to simplify the interaction between node and mongodb.
+
+A mongo database has many collections, eg user, posts, payments.  Each collection is made up of records which contains key value pairs.
+
+Mongo is schema-less.  Each record in a collection can have different fields.
+
+Mongoose uses a model class which represents a single collection.  Each record in the collection is a model instance.
+
+
+/////////////////////////////
+Setup a mongo database remotely is easier than on computer.
+
+MLabs.com  Login, create new, select free, name db, submit order.
+
+Select the new database from list.  Create a database user which refers to an admin that can play around with the db.  Click user tab, then add database user button.
+
+brad chicken1.    Do not click read-only.
+
+//////////////////////////////
+
+install mongoose --> npm install mongoose --save
+
+url to connect express to mongodb remember to replace <dbuser> (including pointy brackets) with your newly created database user name, and same with password.
+
+When running server again, deprecation warnings are produced by mongodb because of calls made by the mongoose library.  Mongoose makers problem.  Ignore them.
