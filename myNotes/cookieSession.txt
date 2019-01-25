@@ -1,0 +1,10 @@
+In the index.js.
+
+When the cookie-session middleware extracts the cookie data from the request, it assigns it to the req.session object (which is an object with the key of user).
+
+Passport is actually looking at req.session to pull out the relevant data to deserialize back to the mongo id.
+
+
+cookie-session alternative is express-session.  Difference between the two is how the data is stored inside the cookie.
+* cookie-session - the cookie IS the session.  It contains all the data related to the current session.  It contains the actual user Id.
+* express-session - express saves an reference/Id to a session inside the cookie.  The id is then used to look up the session data which is kept in a separate collection.

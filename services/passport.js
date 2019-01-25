@@ -8,7 +8,7 @@ const keys = require("../config/keys");
 //Now User refers to our model class/users collection.
 const User = mongoose.model("users");
 
-//when the user has signed in and has been authenticated, passport will use the user profile to create a token/cookie which will be sent back to the browser that will allow follow up requests without having to authenticate again.
+//when the user has signed in and has been authenticated, passport will use the user profile to create a token/cookie which will be sent back to the browser that will allow follow up requests without having to authenticate again.  This is done in the background.
 //serializeUser is a predefined method in passport will use the user.id to create a cookie code.
 //the first argument of user refers to the user returned from either retrieving an existing user, or the newly created user when signing up/loggin in.
 //null is used to handle any errors that may occur.

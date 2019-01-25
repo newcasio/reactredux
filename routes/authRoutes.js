@@ -15,4 +15,18 @@ module.exports = app => {
 
   //on this route, passport.authenticate is called again, but it will see a code at the end of the url so deduces user already verified so will send what is in the scope above which is the user profile and email.
   app.get("/auth/google/callback", passport.authenticate("google"));
+
+  //log out function.
+  //logout method automatically attached to req by passport.
+  //destroys cookie currently attached to request.
+  app.get("/api/logout", (req, res) => {
+    req.logout();
+    res.send(req.user);
+  });
+
+  //this route to test after logging in, user info is attached to subsequent reqests
+  app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+    // res.send(req.session);
+  });
 };
