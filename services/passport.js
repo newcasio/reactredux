@@ -34,12 +34,14 @@ passport.deserializeUser((id, done) => {
 //when google returns without error, we want to create a new User, and assign the google ID according to the schema.  The key must match what is defined in the schema, and assign it the id (profile.id).  Manually save this record with .save();
 //if google ID exists in our database, do not create a new User.
 //call done to tell passport we have finished, and it can continue on the auth process.  If we find a record (the if part) we pass null as the first argument to say no errors occurred, the second will be the actual record.
+//proxy true to allow proxies?  (avoid error caused from callback domains to http instead of https)
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: "/auth/google/callback"
+      callbackURL: "/auth/google/callback",
+      proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
       // console.log(profile);
