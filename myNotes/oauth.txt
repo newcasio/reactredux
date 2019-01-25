@@ -7,9 +7,15 @@ We must also install a passport strategy, eg google, facebook.
 
 npm i --save passport passport-google-oauth2  (installing passport and the google stategy)
 
-Goto console.developers.google.com.au to register/create the project which will be asking google to authenticate the user.
+Goto console.developers.google.com to register/create the project which will be asking google to authenticate the user.
 Search Google+ API which contains google oauth, and enable.
 Click credentials on LHS pane, select OAuth client ID, click on configure consent screen.  Type in name of app into product field, then save.  Select Web application,  addresses (for now) auth JS origins http://localhost:5000, auth redirect URIs http://localhost:5000/auth/google/callback (this auth redirect must match exactly to the callbackURL in GoogleStrategy).  Create.  Client ID and Secret available now to tell google when asking to verify user.
+
+Making a second production google project, goto console.developers.com.  Create new project, again seach for google+ api, enable, LHS credentials, OAuth tab give the application a name the user will see when google asks for their google login, save.  Credentials tab, application type is web application.  First url is approved url that can send user to the google login, second url is approved url that google redirects the user after login.  For Heroku, goto terminal heroku open to open the running app --> url, copy.  Paste into first, and second.  Add to second /auth/google/callback, same as dev environment.  If red when pasting, remove trailing /, click on approved domains which will take you to another page.  Towards the bottom Authorized domains, paste the url again here but remove the http from the start, save.  Go back and create credentials again, should be able to create this time.
+
+
+
+
 
 When hit we hit http://localhost:5000/auth/google route for user authentication, the route handler in index.js is directed to google and we see the google login page.  If we click on a profile with the correct credentials, we get redirected to http://localhost:5000/auth/google/callback as specified in the GoogleStrategy, but with a code at the end of the URL.  This code is like a session token which google will use.  This returns an access token to the second argument (callback) of our new GoogleStrategy to run.
 

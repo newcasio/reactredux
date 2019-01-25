@@ -14,8 +14,8 @@ MLabs.com  Login, create new, select free, name db, submit order.
 
 Select the new database from list.  Create a database user which refers to an admin that can play around with the db.  Click user tab, then add database user button.
 
-brad chicken1.    Do not click read-only.
-
+dev brad chicken1.    Do not click read-only.
+production bradley chicken1
 //////////////////////////////
 
 install mongoose --> npm install mongoose --save
