@@ -3,6 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
 
+require("./models/User.js");
+
 //we need the code in the passport.js file to run, so we just require instead of assigning a const name.  We don't need to constName.add or anything.
 require("./services/passport");
 

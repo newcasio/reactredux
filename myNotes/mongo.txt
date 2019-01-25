@@ -23,3 +23,10 @@ install mongoose --> npm install mongoose --save
 url to connect express to mongodb remember to replace <dbuser> (including pointy brackets) with your newly created database user name, and same with password.
 
 When running server again, deprecation warnings are produced by mongodb because of calls made by the mongoose library.  Mongoose makers problem.  Ignore them.
+
+
+Create a new Mongoose model class (server/models/User.js).
+
+Mongoose will create the collection/model if it doesn't already exist.  It will not delete and replace each time.
+
+Can add and delete fields to schema as we go.
