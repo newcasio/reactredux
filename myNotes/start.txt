@@ -1,1 +1,12 @@
-to start with nodemon use npm run dev.  This is defined in the scripts in the package.json file.
+to start with nodemon use npm run server.  This is defined in the scripts in the package.json file.
+
+Front end === client === localhost:3000
+
+Back end === node/express === api === localhost:5000
+
+
+Start both react and node servers using one command, goto package.json file in root directory (server, not the one in client directory).  Add additional script "client": "npm run start --prefix client".  This tells the node package.json file to run the npm run start as if we were in the client directory.  This is for the frontend/client side.
+Backend/node already has a its npm run server script to start.
+Install concurrently package to run both scripts together npm i --save concurrently in the server/root directory.
+Combine by adding script "dev": "concurrently \"npm run server\" \"npm run client\"".
+Run both using npm run dev (each server does not know of the other at this stage.).

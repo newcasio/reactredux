@@ -1,0 +1,21 @@
+Install create-react-app tool.  sudo npm install -g create-react-app.
+
+Actually create a new react app called client, 'create-react-app client'.
+This will create a client folder.
+Within the client folder, react has its own little server.  This is to take all the separate react files, and combined then to a single file to send to the browser.  Having a separate frontend and backend servers allows swapping out frontends and backends.
+Make sure you in the client directory, run npm start.  This will take us over to localhost:3000 with a boilerplate frontend.
+To change what is seen on boilerplate, in atom go into client/src/app.js
+Client has its on package.json file.
+
+
+May get 'proxy' error when starting server.
+Goto client folder, npm install http-proxy-middleware --save.
+In src folder, create setupProxy.js file, adding
+  const proxy = require('http-proxy-middleware');
+  module.exports = function (app){
+    app.use(proxy('/auth/google', {target: 'http://localhost:5000'}));
+    app.use(proxy('api/*', {target: 'http://localhost:5000'}));
+  };
+
+
+Want link on our react app to goto localhost:5000/auth/google, see notes in setupProxy.js.

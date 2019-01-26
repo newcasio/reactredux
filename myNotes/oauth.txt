@@ -35,3 +35,7 @@ Passport then uses the cookie data and isolates the user id.
 deserializeUser then converts the user id back into a mongo id to get the individual user.
 This user is then attached to the req object as req.user.
 The req object is now sent on to the specified route handler.
+
+
+/////////////////////////
+Still may get an error 400 when trying to get into oauth flow from client/react (link in app.js).  Go to the console.developers..... url at the bottom of the error page.  Copy the callback url at the top of the error page, and add it to the authorised redirect URIs and save.  Give it a couple of minutes to update.
