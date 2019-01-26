@@ -19,3 +19,11 @@ In src folder, create setupProxy.js file, adding
 
 
 Want link on our react app to goto localhost:5000/auth/google, see notes in setupProxy.js.
+
+///////////
+Root file is index.js -- file for redux, data layer control, links to the main component app.js.
+
+App.js for react stuff/react router, rendering layer control.  App.js will show the individual visual components.
+
+Make sure in client directory and install packages.
+npm install --save redux react-redux react-router-dom
