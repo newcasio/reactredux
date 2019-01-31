@@ -1,3 +1,13 @@
+
+Within project folder
+git init  to set up a local git repo.
+npm init  to set up package.json file.
+
+npm install express --save  this installs express framework and node_modules folder
+
+create .gitignore file in root of folder.  add node_modules and save.  Whatever file names you put in here, will not be saved to the git repos.
+
+_____________________________________________
 to start with nodemon use npm run server.  This is defined in the scripts in the package.json file.
 
 Front end === client === localhost:3000
